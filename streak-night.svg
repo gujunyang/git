@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 495 195" width="495" height="195" font-family="Segoe UI, Microsoft YaHei, PingFang SC, Noto Sans SC, Helvetica, Arial, sans-serif">
+  <title>streak card — placeholder until the first Action run</title>
+  <rect x="0.5" y="0.5" width="494" height="194" rx="10" fill="#0d1117" stroke="#30363d"/>
+  <text x="247" y="90" text-anchor="middle" font-size="26" font-weight="700" fill="#6FB1FF">🔥 streak</text>
+  <text x="247" y="118" text-anchor="middle" font-size="12" fill="#8b949e">this card is baked by .github/workflows/streak.yml</text>
+  <text x="247" y="136" text-anchor="middle" font-size="12" fill="#8b949e">run it once (or wait for the cron) and it fills in</text>
+</svg>

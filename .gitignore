@@ -1,0 +1,11 @@
+# local render previews (python -c "import cairosvg; ...")
+*_preview.png
+
+# python
+__pycache__/
+*.pyc
+
+# OS / editor cruft
+.DS_Store
+Thumbs.db
+desktop.ini

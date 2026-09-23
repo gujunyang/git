@@ -1,0 +1,48 @@
+name: Living desk
+
+on:
+  schedule:
+    - cron: "23 */3 * * *"
+  workflow_dispatch:
+    inputs:
+      weather:
+        description: "Pin the weather — clear/clouds/drizzle/rain/snow/fog/storm. Blank uses the real forecast."
+        required: false
+        default: ""
+      season:
+        description: "Pin the season — spring/summer/autumn/winter. Blank uses today's date."
+        required: false
+        default: ""
+
+permissions:
+  contents: write
+
+jobs:
+  scene:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+
+      # looks up the live Hong Kong sky (Open-Meteo) and redraws the desk:
+      # desk.svg / desk-night.svg / desk-footer*.svg + .github/scene-state.json
+      - name: render the desk from the live sky
+        env:
+          SCENE_WEATHER: ${{ inputs.weather }}
+          SCENE_SEASON: ${{ inputs.season }}
+        run: python3 scripts/gen_scene.py
+
+      - name: commit if changed
+        run: |
+          git config user.name  "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add desk.svg desk-night.svg desk-footer.svg desk-footer-night.svg .github/scene-state.json
+          if git diff --cached --quiet; then
+            echo "scene unchanged"
+            exit 0
+          fi
+          STATE=$(python3 -c "import json;d=json.load(open('.github/scene-state.json'));print(d['season'],d['condition'],'day' if d['is_day'] else 'night')")
+          git commit -m "🌦 desk sync: $STATE"
+          git pull --rebase origin main
+          git push origin HEAD:main
