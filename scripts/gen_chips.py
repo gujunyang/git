@@ -8,6 +8,7 @@ Icons; the README block between the Tech Garden markers is rewritten.
 import html
 import random
 import re
+import time
 import urllib.request
 from pathlib import Path
 
@@ -25,65 +26,65 @@ GUIDE_WRAP = 118  # display units per line (a CJK glyph counts as 2)
 STACK = [
     ("LANGUAGES", "#4C8DFF", "#2F6FE0", [
         ("python", "python", "Python",
-         "主要生产力。所有框架都先学会说它，我也是。"),
+         "My main source of productivity. Every framework learns to speak it first — so did I."),
         ("typescript", "typescript", "TypeScript",
-         "给 JavaScript 上保险——编译期就拦住那些深夜的愚蠢 🛡️"),
+         "Insurance for JavaScript — it blocks those late-night stupidities at compile time 🛡️"),
         ("javascript", "javascript", "JavaScript",
-         "一切网页的通用语。写它像开盲盒：能跑，但不知道为什么。"),
+         "The lingua franca of the web. Writing it is like a mystery box: it runs, but you don't know why."),
         ("rust", "rust", "Rust",
-         "内存安全的系统语言。我学它是因为大家都说它难，后来我发现大家是对的 🦀"),
+         "A memory-safe systems language. I learned it because everyone said it was hard — then I found out everyone was right 🦀"),
         ("cplusplus", "cplusplus", "C++",
-         "性能与痛苦并存。指针教会我对内存保持敬畏。"),
+         "Performance and pain, together. Pointers taught me to respect memory."),
         ("git", "git", "Git",
-         "我最诚实的一项技能——因为每一次乱提交都留下了证据。"),
+         "My most honest skill — because every messy commit leaves evidence."),
     ]),
     ("AI / DATA", "#8A7CF5", "#6E5EE0", [
         ("langchain", "langchain", "LangChain",
-         "把大模型、工具和记忆串成链的胶水。链一长，就不知道自己写了啥 🧩"),
+         "The glue that strings models, tools and memory into chains. Once a chain grows long, you forget what you wrote 🧩"),
         ("rag", None, "RAG",
-         "先检索资料再回答，让模型少一本正经地胡说八道 📚"),
+         "Look up sources before answering, so the model does less confident nonsense 📚"),
         ("prompt", None, "Prompt",
-         "和模型对话的手艺。同一个模型，提示词决定它是天才还是人工智障 ✍️"),
+         "The craft of talking to models. Same model — the prompt decides whether it's a genius or an idiot ✍️"),
         ("numpy", "numpy", "NumPy",
-         "矩阵运算的地基，也是我调 shape 调到崩溃的元凶。"),
+         "The bedrock of matrix math, and the reason I break down debugging shapes."),
         ("pandas", "pandas", "Pandas",
-         "处理表格的瑞士军刀。内存爆了？换个 chunk 再来。"),
+         "The Swiss Army knife for tables. Out of memory? Switch chunks and go again."),
         ("openai", "openai", "OpenAI",
-         "现代编程的第二个大脑，也是我论文致谢里没写的那位。"),
+         "The second brain of modern programming, and the one I never thanked in my paper."),
         ("deepseek", "deepseek", "Deepseek",
-         "国产开源之光：便宜、能打，是我算力预算的救星 🐋"),
+         "Open-source pride: cheap and capable, the savior of my compute budget 🐋"),
     ]),
     ("ON MY DESK", "#37B59B", "#26897A", [
         ("apple", "apple", "Apple",
-         "生态绑架的甜蜜牢笼：一旦进去，就再也没出来过 🍎"),
+         "A sweet cage of ecosystem lock-in: once you're in, you never get out 🍎"),
         ("android", "android", "Android",
-         "备机、折腾、刷机。开放的另一半自由。"),
+         "Backup phone, tinkering, flashing ROMs. The open other half of freedom."),
         ("raspberrypi", "raspberrypi", "Raspberry Pi",
-         "吃灰率最高的设备。买它的那一刻最快乐。"),
+         "The device that collects the most dust. The happiest moment is when you buy it."),
         ("arduino", "arduino", "Arduino",
-         "让电子小白也能点灯。我点亮的第一个 LED，比论文还让我感动。"),
+         "It lets electronics newbies light things up. My first lit LED moved me more than my paper did."),
         ("nvidia", "nvidia", "NVIDIA",
-         "钱包的终极黑洞。CUDA 会在，钱不会。"),
+         "The ultimate black hole for your wallet. CUDA will still be here; the money won't."),
         ("visualstudiocode", "visualstudiocode", "VS Code",
-         "我的第二张床。插件装了 200 个，常用的只有 3 个。"),
+         "My second bed. 200 extensions installed, 3 actually used."),
         ("sony", "sony", "Sony",
-         "降噪耳机一戴，全世界安静，只剩导师的消息在震。"),
+         "Put on the noise-cancelling headphones and the world goes quiet — except my advisor's messages buzzing."),
     ]),
     ("OFF SCREEN", "#F2A33C", "#D98828", [
         ("nba", "nba", "Basketball",
-         "球场是唯一对我诚实的地方——投不进，就是投不进 🏀"),
+         "The court is the only place honest with me — a miss is a miss 🏀"),
         ("nike", "nike", "Nike",
-         "装备党的自我安慰：技术不够，鞋来凑。"),
+         "A gearhead's comfort: when the skill isn't enough, the shoes make up for it."),
         ("spotify", "spotify", "Spotify",
-         "写代码的 BGM 供应商。歌单比代码更用心。"),
+         "The BGM supplier for coding. My playlists get more care than my code."),
         ("steam", "steam", "Steam",
-         "买了等于玩过的电子收藏馆。库里的游戏是我的数字遗产。"),
+         "A digital museum where buying counts as playing. The games in my library are my digital inheritance."),
         ("bilibili", "bilibili", "Bilibili",
-         "赛博自习室。看了三小时，学了五分钟。"),
+         "A cyber study room. Watch for three hours, learn for five minutes."),
         ("notion", "notion", "Notion",
-         "生产力布置得很漂亮，产出依旧为零。"),
+         "Productivity laid out beautifully, output still zero."),
         ("youtube", "youtube", "YouTube",
-         "从修水管到写论文，宇宙级导师集合。"),
+         "From fixing pipes to writing papers, a gathering of cosmic-level mentors."),
     ]),
 ]
 
@@ -124,8 +125,17 @@ _icons = {}
 def icon_path(slug):
     if slug not in _icons:
         req = urllib.request.Request(ICON_URL.format(slug), headers={"User-Agent": "Mozilla/5.0"})
-        with urllib.request.urlopen(req, timeout=20) as r:
-            svg = r.read().decode("utf-8")
+        last = None
+        for attempt in range(4):
+            try:
+                with urllib.request.urlopen(req, timeout=20) as r:
+                    svg = r.read().decode("utf-8")
+                break
+            except Exception as exc:
+                last = exc
+                time.sleep(1.0)
+        else:
+            raise SystemExit(f"could not fetch Simple Icons svg for {slug}: {last}")
         m = re.search(r'<path d="([^"]+)"', svg)
         if not m:
             raise SystemExit(f"no path in Simple Icons svg for {slug}")
@@ -198,7 +208,7 @@ def readme_block():
         guides.append(f'<img src="chips/guide-{i}.svg" alt="{html.escape(text)} field guide" /><br/>')
     return ('<!-- ============ Tech Garden ============ -->\n<div align="center">\n\n'
             + "\n\n".join(rows) + "\n\n<details>\n"
-            '<summary>🖥️ &nbsp;<b>Field guide</b> — every chip, explained (点开看看每个都在干嘛)</summary>\n<br/>\n<div align="center">\n'
+            '<summary>🖥️ &nbsp;<b>Field guide</b> — every chip, explained (click to see what each one does)</summary>\n<br/>\n<div align="center">\n'
             + "\n".join(guides) + "\n</div>\n</details>\n\n</div>\n")
 
 

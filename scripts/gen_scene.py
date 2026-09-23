@@ -28,7 +28,7 @@ STATE = ROOT / ".github" / "scene-state.json"
 
 LAT, LON = 22.3193, 114.1694          # Hong Kong
 TZ = "Asia%2FHong_Kong"
-PLACE = "香港"
+PLACE = "Hong Kong"
 FONT = ("Segoe UI, Microsoft YaHei, PingFang SC, Hiragino Sans GB, "
         "Noto Sans SC, Helvetica, Arial, sans-serif")
 
@@ -36,8 +36,8 @@ W, H = 900, 300                        # header canvas
 FW, FH = 900, 170                      # footer canvas
 
 CONDITIONS = ("clear", "clouds", "drizzle", "rain", "snow", "fog", "storm")
-COND_CN = {"clear": "晴", "clouds": "多云", "drizzle": "小雨", "rain": "雨",
-           "snow": "雪", "fog": "雾", "storm": "雷雨"}
+COND_EN = {"clear": "Clear", "clouds": "Cloudy", "drizzle": "Drizzle", "rain": "Rain",
+           "snow": "Snow", "fog": "Fog", "storm": "Thunder"}
 SEASONS = ("spring", "summer", "autumn", "winter")
 
 # ---------------------------------------------------------------- palette
@@ -247,7 +247,7 @@ def monitor(p):
         '<g font-family="Consolas, Menlo, monospace" font-size="9">'
         '<text x="-58" y="-72" fill="#7EE787">def</text><text x="-40" y="-72" fill="#79C0FF">hello</text><text x="-18" y="-72" fill="#E6EDF3">():</text>'
         '<text x="-52" y="-58" fill="#FFA657">print</text><text x="-30" y="-58" fill="#E6EDF3">(</text><text x="-25" y="-58" fill="#A5D6FF">"hi, world"</text><text x="35" y="-58" fill="#E6EDF3">)</text>'
-        '<text x="-58" y="-44" fill="#8B949E"># TODO: 早睡</text>'
+        '<text x="-58" y="-44" fill="#8B949E"># TODO: sleep early</text>'
         '</g>'
         f'<rect x="-56" y="-32" width="6" height="10" fill="#E6EDF3"><animate attributeName="opacity" values="1;1;0;0;1" keyTimes="0;0.45;0.5;0.95;1" dur="1.1s" repeatCount="indefinite"/></rect>'
         f'<rect x="-10" y="-8" width="20" height="6" rx="2" fill="{p.edge}"/>'
@@ -365,15 +365,15 @@ def header(cond, season, is_day):
     body.append(phone(p))
     # text
     ink, sub = p.ink, p.sub
-    cond_cn = COND_CN[cond]
+    cond_en = COND_EN[cond]
     body.append(
         f'<g><text x="56" y="58" font-size="46" font-weight="700" letter-spacing="2" fill="{ink}">gujunyang</text>'
-        f'<text x="58" y="86" font-size="15" letter-spacing="1" fill="{sub}">Half code, half court. · 一半代码，一半球场</text>'
-        + hud(f'{PLACE} · {cond_cn} · {season}', ink, sub, (104, p.glow))
+        f'<text x="58" y="86" font-size="15" letter-spacing="1" fill="{sub}">Half code, half court.</text>'
+        + hud(f'{PLACE} · {cond_en} · {season}', ink, sub, (104, p.glow))
         + '</g>')
     return (f'<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 {W} {H}" width="{W}" height="{H}" '
             f'font-family="{FONT}">'
-            f'<title>gujunyang — desk ({PLACE} {cond_cn} {season})</title>'
+            f'<title>gujunyang — desk ({PLACE} {cond_en} {season})</title>'
             + "".join(body) + '</svg>\n')
 
 
@@ -439,7 +439,7 @@ def footer(is_day):
             f'<title>gujunyang — footer (the cat stays)</title>'
             + "".join(body)
             + f'<text x="60" y="62" font-size="20" font-weight="700" fill="{p.ink}">still running…</text>'
-            + f'<text x="60" y="86" font-size="13" fill="{p.sub}">照旧在路上 · 猫已睡 · 代码还在跑</text>'
+            + f'<text x="60" y="86" font-size="13" fill="{p.sub}">Still on the road · cat asleep · code still running</text>'
             + '</svg>\n')
 
 
