@@ -28,8 +28,8 @@
 
 ## 我在干什么
 
-> `正在` 认真学习 · 认真摸鱼 · 认真研究下一台值得剁手的设备
-> `计划中` 毕业 · 瘦十斤 · 把那个拖了半年的 side project 写完
+> `正在` 认真学习 · 认真摸鱼 · 认真研究下一台值得剁手的设备<br/>
+> `计划中` 毕业 · 瘦十斤 · 把那个拖了半年的 side project 写完<br/>
 > `已完成` 打开编辑器
 
 <!-- ============ Tech Garden ============ -->
@@ -44,12 +44,13 @@
 <img src="chips/git.svg" alt="Git" />
 
 <img src="chips/label-1.svg" alt="AI / DATA" />
-<img src="chips/pytorch.svg" alt="PyTorch" />
-<img src="chips/huggingface.svg" alt="Hugging Face" />
-<img src="chips/jupyter.svg" alt="Jupyter" />
+<img src="chips/langchain.svg" alt="LangChain" />
+<img src="chips/rag.svg" alt="RAG" />
+<img src="chips/prompt.svg" alt="Prompt" />
 <img src="chips/numpy.svg" alt="NumPy" />
 <img src="chips/pandas.svg" alt="Pandas" />
 <img src="chips/openai.svg" alt="OpenAI" />
+<img src="chips/deepseek.svg" alt="Deepseek" />
 
 <img src="chips/label-2.svg" alt="ON MY DESK" />
 <img src="chips/apple.svg" alt="Apple" />
