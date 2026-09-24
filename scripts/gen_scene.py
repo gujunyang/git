@@ -367,13 +367,13 @@ def header(cond, season, is_day):
     ink, sub = p.ink, p.sub
     cond_en = COND_EN[cond]
     body.append(
-        f'<g><text x="56" y="58" font-size="46" font-weight="700" letter-spacing="2" fill="{ink}">Jack Gu</text>'
+        f'<g><text x="56" y="58" font-size="46" font-weight="700" letter-spacing="2" fill="{ink}">J4ckG</text>'
         f'<text x="58" y="86" font-size="15" letter-spacing="1" fill="{sub}">Half code, half court.</text>'
         + hud(f'{PLACE} · {cond_en} · {season}', ink, sub, (104, p.glow))
         + '</g>')
     return (f'<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 {W} {H}" width="{W}" height="{H}" '
             f'font-family="{FONT}">'
-            f'<title>Jack Gu — desk ({PLACE} {cond_en} {season})</title>'
+            f'<title>J4ckG — desk ({PLACE} {cond_en} {season})</title>'
             + "".join(body) + '</svg>\n')
 
 
