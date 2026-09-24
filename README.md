@@ -101,7 +101,7 @@ I've always felt that a self-introduction is the cheapest thing in this era. Wor
 
 ## One Last Line
 
-> INFP 的自我介绍，通常写在深夜，第二天早上就删了。
+> 通常写在深夜，第二天早上就删了。
 > 所以你能读到这一段，说明我还没来得及后悔。
 
 <div align="center">
