@@ -22,7 +22,7 @@ I've always felt that a self-introduction is the cheapest thing in this era. Wor
 ## About Me
 
 - 🎓 **Grad student** — Hong Kong. Half of me is researching code, the other half is researching how to survive an 8 a.m. class.
-- 🧠 **INFP** — thinks a lot, does very little. Other people's lives have plans; my plan is "let's just leave it like this for now."
+- 🧠 **Life Style** — thinks a lot, does very little. Other people's lives have plans; my plan is "let's just leave it like this for now."
 - 🏀 **Basketball** — a miss is a miss, unlike a paper, which you finish without knowing what you wrote.
 - 🔌 **Gadgets** — I love anything with a battery, a network connection, or an upgrade path. Buy it, boot it, upgrade it, then discover a three-year-old device does the same job. **A lot like me going from undergrad to grad school.**
 - ☕ **Sleep schedule** — Beta version. A worm by day, a dragon by night; my body clock runs on an alien timezone.
